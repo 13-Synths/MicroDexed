@@ -23,7 +23,9 @@
 
 #include <limits.h>
 #include "config.h"
+#ifdef TEENSYDUINO
 #include <Audio.h>
+#endif
 #include <Wire.h>
 #include <MIDI.h>
 #include <EEPROM.h>

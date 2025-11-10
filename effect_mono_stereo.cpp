@@ -21,7 +21,9 @@
 */
 
 #include <Arduino.h>
+#ifdef TEENSYDUINO
 #include <Audio.h>
+#endif
 #include "limits.h"
 #include "effect_mono_stereo.h"
 

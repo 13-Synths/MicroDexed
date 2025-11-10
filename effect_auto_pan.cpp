@@ -21,7 +21,11 @@
 */
 
 #include <Arduino.h>
+#ifdef USE_TEENSY_DSP
+#ifdef TEENSYDUINO
 #include <Audio.h>
+#endif
+#endif
 #include "effect_auto_pan.h"
 
 /*************************************************************************/

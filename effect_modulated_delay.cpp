@@ -23,7 +23,9 @@
 
 #include <Arduino.h>
 #include "config.h"
+#ifdef TEENSYDUINO
 #include <Audio.h>
+#endif
 #include "arm_math.h"
 #include "effect_modulated_delay.h"
 

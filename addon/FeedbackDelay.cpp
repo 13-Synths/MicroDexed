@@ -4,7 +4,9 @@
     on pots. Inputs to the mixer are on inputs 0 (signal) and 1 (delay line)
 */
 
+#ifdef TEENSYDUINO
 #include <Audio.h>
+#endif
 #include <Wire.h>
 #include <SPI.h>
 #include <SD.h>
