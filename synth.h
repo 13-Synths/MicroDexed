@@ -19,7 +19,9 @@
 
 //#include <Arduino.h>
 //#define SUPER_PRECISE
+#ifdef TEENSYDUINO
 #include <Audio.h>
+#endif
 
 // This IS not be present on MSVC.
 // See http://stackoverflow.com/questions/126279/c99-stdint-h-header-and-ms-visual-studio
