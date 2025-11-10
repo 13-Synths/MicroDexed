@@ -154,7 +154,16 @@ void Dexed::getSamples(uint16_t n_samples, int16_t* buffer)
 
         for (j = 0; j < _N_; ++j)
         {
+#ifdef TEENSYDUINO
           sumbuf[i + j] += signed_saturate_rshift(audiobuf.get()[j] >> 4, 24, 9) / 32768.0;
+#else
+          // ESP32-compatible version
+          int32_t sample = audiobuf.get()[j] >> 4;
+          // Saturate to 24-bit, then shift right by 9
+          if (sample > 8388607) sample = 8388607;
+          if (sample < -8388608) sample = -8388608;
+          sumbuf[i + j] += (sample >> 9) / 32768.0f;
+#endif
           audiobuf.get()[j] = 0;
           /*
                     int32_t val = audiobuf.get()[j];
@@ -186,7 +195,19 @@ void Dexed::getSamples(uint16_t n_samples, int16_t* buffer)
   }
 
   //arm_scale_f32(sumbuf, 0.00015, sumbuf, AUDIO_BLOCK_SAMPLES);
+#ifdef TEENSYDUINO
   arm_float_to_q15(sumbuf, buffer, AUDIO_BLOCK_SAMPLES);
+#else
+  // ESP32-compatible float to int16_t conversion
+  for (uint16_t i = 0; i < n_samples; i++) {
+    float sample = sumbuf[i];
+    // Clamp to valid range
+    if (sample > 1.0f) sample = 1.0f;
+    if (sample < -1.0f) sample = -1.0f;
+    // Convert to Q15 format (int16_t)
+    buffer[i] = (int16_t)(sample * 32767.0f);
+  }
+#endif
 }
 
 void Dexed::keydown(int16_t pitch, uint8_t velo) {

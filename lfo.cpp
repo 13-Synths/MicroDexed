@@ -15,6 +15,7 @@
 */
 
 // Low frequency oscillator, compatible with DX7
+#include <algorithm>
 
 #include "synth.h"
 
