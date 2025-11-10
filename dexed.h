@@ -41,7 +41,11 @@
 #include "config.h"
 
 extern bool load_sysex(uint8_t bank, uint8_t voice_number);
+
+#ifdef TEENSYDUINO
 extern AudioControlSGTL5000 sgtl5000_1;
+#endif
+
 extern float vol;
 extern float vol_right;
 extern float vol_left;
@@ -110,6 +114,10 @@ enum DexedVoiceParameters {
   DEXED_TRANSPOSE,          // 18
   DEXED_NAME                // 19
 };
+
+#ifndef MAX_NOTES
+#define MAX_NOTES 4 // or whatever value MAX_VOICES has
+#endif
 
 /* #define DEXED_GLOBAL_PARAMETER_OFFSET 155
   enum DexedGlobalParameters {
