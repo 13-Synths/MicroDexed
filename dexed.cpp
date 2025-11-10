@@ -38,7 +38,9 @@
 #include <limits.h>
 #include "porta.h"
 #ifdef USE_TEENSY_DSP
+#ifdef TEENSYDUINO
 #include <Audio.h>
+#endif
 #endif
 
 extern config_t configuration;

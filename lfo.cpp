@@ -41,7 +41,7 @@ void Lfo::reset(const uint8_t params[6]) {
     a = (16 + (a & 15)) << (1 + (a >> 4));
     delayinc_ = unit_ * a;
     a &= 0xff80;
-    a = max(0x80, a);
+    a = std::max(0x80, a);
     delayinc2_ = unit_ * a;
   }
   waveform_ = params[5];

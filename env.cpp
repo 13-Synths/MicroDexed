@@ -123,7 +123,7 @@ void Env::advance(int newix) {
     // rate
     int qrate = (rates_[ix_] * 41) >> 6;
     qrate += rate_scaling_;
-    qrate = min(qrate, 63);
+    qrate = std::min(qrate, 63);
 
 #ifdef ACCURATE_ENVELOPE
     if (targetlevel_ == level_ || (ix_ == 0 && newlevel == 0)) {
