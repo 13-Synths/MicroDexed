@@ -35,7 +35,9 @@
 #include "EngineMkI.h"
 #include "EngineOpl.h"
 #include "PluginFx.h"
+#ifdef TEENSYDUINO
 #include <Audio.h>
+#endif
 #include "config.h"
 
 extern bool load_sysex(uint8_t bank, uint8_t voice_number);
