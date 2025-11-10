@@ -53,19 +53,20 @@ typedef __int16 SInt16;
 #define SynthMemoryBarrier()
 #endif
 
-#ifndef min
-template<typename T>
-inline static T min(const T& a, const T& b) {
-  return a < b ? a : b;
-}
-#endif
 
-#ifndef max
-template<typename T>
-inline static T max(const T& a, const T& b) {
-  return a > b ? a : b;
+namespace DexedMath {
+  template<typename T>
+  inline static T min(const T& a, const T& b) {
+    return a < b ? a : b;
+  }
+  template<typename T>
+  inline static T max(const T& a, const T& b) {
+    return a > b ? a : b;
+  }
 }
-#endif
+
+using DexedMath::max;
+using DexedMath::min;
 
 #define QER(n,b) ( ((float)n)/(1<<b) )
 
