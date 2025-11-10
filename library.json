@@ -20,7 +20,8 @@
       "-<addon/>",
       "-<effect_*.cpp>",
       "-<dexed_sd.cpp>",
-      "-<source_microdexed.*>"
+      "-<source_microdexed.*>",
+      "-<name.c>"
     ]
   },
   "dependencies": {
