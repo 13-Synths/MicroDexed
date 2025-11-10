@@ -1,0 +1,21 @@
+{
+  "name": "MicroDexed",
+  "version": "1.0.0",
+  "description": "Yamaha DX7 FM synthesizer emulator for ESP32",
+  "keywords": ["synth", "audio", "DX7", "FM"],
+  "authors": {
+    "name": "dcoredump"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/13-Synths/MicroDexed.git"
+  },
+  "frameworks": "arduino",
+  "platforms": "espressif32",
+  "build": {
+    "includeDir": "src"
+  },
+  "dependencies": {
+    "Bounce2": "^2.52.0"
+  }
+}
